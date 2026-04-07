@@ -38,6 +38,7 @@ def add_comfy_cast_weights_attr(svdq_linear: SVDQW4A4Linear, comfy_linear: nn.Li
         svdq_linear.comfy_cast_weights = comfy_linear.comfy_cast_weights
         svdq_linear.weight = None
 
+
 def resolve_linear_dtype_device(
     comfy_linear: nn.Linear,
     torch_dtype: torch.dtype | None = None,
@@ -67,6 +68,7 @@ def resolve_linear_dtype_device(
             device = torch.device("cpu")
 
     return torch_dtype, device
+
 
 def fuse_to_svdquant_linear(comfy_linear1: nn.Linear, comfy_linear2: nn.Linear, **kwargs) -> SVDQW4A4Linear:
     """
